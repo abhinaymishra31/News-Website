@@ -1,0 +1,239 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="defaultmaster.master.cs" Inherits="defaultmaster" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>NEWS WEBSITE</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" type="text/css" href="assets/font/font-awesome.min.css" />
+<link rel="stylesheet" type="text/css" href="assets/font/font.css" />
+<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="assets/css/style.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="assets/css/Custom-Cs.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="assets/css/responsive.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="assets/css/jquery.bxslider.css" media="screen" />
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+    <body>
+<div class="body_wrapper">
+  <div class="center">
+    <div class="header_area">
+      <div class="logo floatleft"><a href="#"><img class="img-circle" src="images/logo.jpg" alt="#" style="height:100px;width:150px;margin-left:49px;margin-bottom:10px;"/><br /></a><p style="font-size:20px;color:blue;"></p></div>
+      <div class="top_menu floatright" style="width:620px;height:70px;margin-right:-30px;top:100px;">
+           <div class="btn-group">
+                        <button type="button" class="btn btn-success btn-lg"><a href="Default.aspx" style="color:white">HOME</a></button>
+                        <button type="button" class="btn btn-success btn-lg"><a href="#" style="color:white">ABOUT</a></button>
+                        <button type="button" class="btn btn-success btn-lg"><a href="#" style="color:white">CONTACT US</a></button>
+                        <button type="button" class="btn btn-success btn-lg"><a href="SignUp.aspx" style="color:white">SIGNUP</a></button>
+                        <button type="button" class="btn btn-success btn-lg" id="myBtn">LOGIN</button>
+                    </div>
+                
+      </div>
+      <div class="social_plus_search floatright">
+        <div class="social" style="margin-top:-25px;">
+          <ul>
+          </ul>
+        </div>
+          <div class="search">
+              <form action="#" method="post" id="search_form">
+                  &nbsp;
+            <input type="hidden" value="post" name="post_type" />
+              </form>
+          </div>
+      </div>
+    </div>
+    <div class="main_menu_area">
+      <ul id="nav">
+        <li><a href="#">NEWS</a>
+            <ul>
+            <li><a href="#">INTERNATIONAL</a></li>
+            <li><a href="#">NATIONAL</a></li>
+                <li><a href="#">STATE</a>
+                    <ul>
+                        <li><a href="#">DELHI</a></li>
+                        <li><a href="#">MAHARASHTRA</a></li>
+                        <li><a href="#">UTTARPRADESH</a></li>
+                        <li><a href="#">UTTARAKHAND</a></li>
+                        <li><a href="#">GUJARAT</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">CITY</a>
+                    <ul>
+                        <li><a href="#">ALLAHABAD</a></li>
+                        <li><a href="#">LUCKNOW</a></li>
+                    </ul>
+                </li>
+                  </ul>
+               </li>
+       
+        <li><a href="#">SPORTS</a>
+             <ul>
+                <li><a href="#">CRICKET</a></li>
+                <li><a href="#">FOOTBALL</a></li>
+                <li><a href="#">HOCKEY</a></li>
+                <li><a href="#">TENNIS</a></li>
+                <li><a href="#">OTHER SPORTS</a></li>
+              </ul>
+        </li>
+        <li><a href="#">SCI-TECH</a>
+          <ul>
+            <li><a href="#">SCIENCE</a></li>
+            <li><a href="#">TECHNOLOGY</a></li>
+            <li><a href="#">HEALTH</a></li>
+            <li><a href="#">AGRICULTURE</a></li>
+            <li><a href="#">ENVIRONMENT</a></li>
+               <li><a href="#">GADGETS</a>
+                   <ul>
+                       <li><a href="#">MOBILES</a></li>
+                       <li><a href="#">LAPTOPS</a></li>
+                       <li><a href="#">OTHER GADGETS</a></li>
+                   </ul>
+               </li>
+               <li><a href="#">INTERNET</a></li>
+          </ul>
+        </li>
+        <li><a href="#">BOOKS</a></li>
+        <li><a href="#">LIFE & STYLE</a>
+            <ul>
+                <li><a href="#">FASHION</a></li>
+                <li><a href="#">FITNESS</a></li>
+                <li><a href="#">FOOD</a>
+                </li>
+            </ul>
+        </li>
+        <li><a href="#">ENTERTAINMENT</a>
+            <ul>
+                <li><a href="#">BOLLYWOOD</a></li>
+                <li><a href="#">HOLLYWOOD</a></li>
+                <li><a href="#">MOVIE REVEIWS</a></li>
+                <li><a href="#">BEAUTY PAGEANTS</a></li>
+            </ul>
+        </li>
+        <li><a href="#">culture</a></li>
+        <li><a href="#">BUSINESS</a>
+          <ul>
+            <li><a href="#">INDIA BUSINESS</a></li>
+            <li><a href="#">STOCK MARKET</a></li>
+            <li><a href="#">INTERNATIONAL BUSINESS</a></li>
+            <li><a href="#">Single item</a></li>
+            <li><a href="#">Single item</a></li>
+          </ul>
+        </li>
+        <li><a href="#">classifieds</a></li>
+        <li><a href="#">blogs</a></li>
+      </ul>
+    </div>
+       <asp:ContentPlaceHolder id="ContentPlaceHolder2" runat="server">
+             
+        </asp:ContentPlaceHolder>
+   <%--   <div class="sidebar floatright">
+        <div class="single_sidebar"> &nbsp;</div>
+        <div class="single_sidebar">
+          <div class="news-letter">
+            <h2>Sign Up for Newsletter</h2>
+            <p>Sign up to receive our free newsletters!</p>
+            <form action="#" method="post">
+              <input type="text" value="Name" id="name" />
+              <input type="text" value="Email Address" id="email" />
+              <input type="submit" value="SUBMIT" id="form-submit" />
+            </form>
+            <p class="news-letter-privacy">We do not spam. We value your privacy!</p>
+          </div>
+        </div>
+        <div class="single_sidebar">
+          <div class="popular">
+            <h2 class="title">Popular</h2>
+            <ul>
+              <li>
+                <div class="single_popular">
+                  <p>Sept 24th 2045</p>
+                  <h3>Doctors should prescribe generic drugs, says PM
+<a href="#" class="readmore">Read More</a></h3>
+                </div>
+              </li>
+              <li>
+                <div class="single_popular">
+                  <p>Sept 24th 2045</p>
+                  <h3>Chidambaram’s son under scanner over FEMA violations<a href="#" class="readmore">Read More</a></h3>
+                </div>
+              </li>
+              <li>
+                <div class="single_popular">
+                  <p>Sept 24th 2045</p> 
+                  <h3>AI imposes stricter rules for unruly flyers post Gaikwad
+ <a href="#" class="readmore">Read More</a></h3>
+                </div>
+              </li>
+              <li>
+                <div class="single_popular">
+                  <p>Sept 24th 2045</p>
+                  <h3>All ranks must work to strengthen Army: Army Chief
+
+<a href="#" class="readmore">Read More</a></h3>
+                </div>
+              </li>
+              <li>
+                <div class="single_popular">
+                  <p>Sept 24th 2045</p>
+                  <h3>I didn't bribe anybody, says Dinakaran after charges
+<a href="#" class="readmore">Read More</a></h3>
+                </div>
+              </li>
+            </ul>
+            <a class="popular_more">more</a> </div>
+        </div>
+        <div class="single_sidebar"> &nbsp;</div>
+        <div class="single_sidebar">
+          &nbsp;</div>
+      </div>--%>
+    <div class="footer_top_area">
+      <div class="inner_footer_top"> &nbsp;</div>
+    </div>
+    <div class="footer_bottom_area">
+      <div class="footer_menu">
+        <ul id="f_menu">
+          <li><a href="#">world news</a></li>
+          <li><a href="#">sports</a></li>
+          <li><a href="#">tech</a></li>
+          <li><a href="#">business</a></li>
+          <li><a href="#">Movies</a></li>
+          <li><a href="#">entertainment</a></li>
+          <li><a href="#">culture</a></li>
+          <li><a href="#">Books</a></li>
+          <li><a href="#">classifieds</a></li>
+          <li><a href="#">blogs</a></li>
+        </ul>
+      </div>
+      <div class="copyright_text">
+        <p>&nbsp;</p>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript" src="assets/js/jquery-min.js"></script> 
+<script type="text/javascript" src="assets/js/bootstrap.min.js"></script> 
+<script type="text/javascript" src="assets/js/jquery.bxslider.js"></script> 
+<script type="text/javascript" src="assets/js/selectnav.min.js"></script> 
+  <script type="text/javascript" src="assets/js/js.js"></script> 
+<script type="text/javascript">
+selectnav('nav', {
+    label: '-Navigation-',
+    nested: true,
+    indent: '-'
+});
+selectnav('f_menu', {
+    label: '-Navigation-',
+    nested: true,
+    indent: '-'
+});
+$('.bxslider').bxSlider({
+    mode: 'fade',
+    captions: true
+});
+</script>
+    
+</body>
+</html>

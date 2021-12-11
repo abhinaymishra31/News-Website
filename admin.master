@@ -1,0 +1,374 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="admin.master.cs" Inherits="admin" %>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>NEWS WEBSITE</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" type="text/css" href="assets/font/font-awesome.min.css" />
+<link rel="stylesheet" type="text/css" href="assets/font/font.css" />
+<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="assets/css/style.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="assets/css/responsive.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="assets/css/jquery.bxslider.css" media="screen" />
+
+
+
+    
+    <link href="css/styledata.css" rel="stylesheet" type="text/css" /> 
+    <style type="text/css">
+          .Empty
+        {
+            background: url("../Empty.gif") no-repeat right top;
+        }
+        .Empty:hover
+        {
+            background: url("../Filled.gif") no-repeat right top;
+        }
+        .Filled
+        {
+            background: url("../Filled.gif") no-repeat right top;
+        }
+        </style>
+    <script type="text/javascript">
+
+        function Decide(option) {
+            var temp = "";
+            document.getElementById('lblRate').innerText = "";
+            if (option == 1) {
+                document.getElementById('Rating1').className = "Filled";
+                document.getElementById('Rating2').className = "Empty";
+                document.getElementById('Rating3').className = "Empty";
+                document.getElementById('Rating4').className = "Empty";
+                document.getElementById('Rating5').className = "Empty";
+                temp = "1-Poor";
+            }
+            if (option == 2) {
+                document.getElementById('Rating1').className = "Filled";
+                document.getElementById('Rating2').className = "Filled";
+                document.getElementById('Rating3').className = "Empty";
+                document.getElementById('Rating4').className = "Empty";
+                document.getElementById('Rating5').className = "Empty";
+                temp = "2-Ok";
+
+            }
+            if (option == 3) {
+                document.getElementById('Rating1').className = "Filled";
+                document.getElementById('Rating2').className = "Filled";
+                document.getElementById('Rating3').className = "Filled";
+                document.getElementById('Rating4').className = "Empty";
+                document.getElementById('Rating5').className = "Empty";
+                temp = "3-Fair";
+            }
+            if (option == 4) {
+                document.getElementById('Rating1').className = "Filled";
+                document.getElementById('Rating2').className = "Filled";
+                document.getElementById('Rating3').className = "Filled";
+                document.getElementById('Rating4').className = "Filled";
+                document.getElementById('Rating5').className = "Empty";
+                temp = "4-Good";
+            }
+            if (option == 5) {
+                document.getElementById('Rating1').className = "Filled";
+                document.getElementById('Rating2').className = "Filled";
+                document.getElementById('Rating3').className = "Filled";
+                document.getElementById('Rating4').className = "Filled";
+                document.getElementById('Rating5').className = "Filled";
+                temp = "5-Nice";
+            }
+            document.getElementById('lblRate').innerText = temp;
+            var hdnfldVariable = document.getElementById('hdnfldVariable');
+            hdnfldVariable.value = temp;
+            return false;
+        }
+
+    </script>
+
+
+
+
+</head> 
+<body>
+    <form runat="server">
+    <div class="body_wrapper">
+        <div class="center">
+            <div class="header_area">
+                <div class="logo floatleft">
+                    <a href="#">
+                        <img class="img-circle" src="images/logo.jpg" alt="#" style="height: 100px; width: 150px; margin-left: 49px; margin-bottom: 10px;" /><br />
+                    </a>
+                    <p style="font-size: 20px; color: blue;"></p>
+                </div>
+                <div class="top_menu floatright" style="width: 680px; height: 70px; margin-right: 0px; top: 100px;">
+                  <div class="btn-group">
+                        <button type="button" class="btn btn-success btn-lg"><a href="Default.aspx" style="color:white">HOME</a></button>
+                        <button type="button" class="btn btn-success btn-lg"><a href="about us.aspx" style="color:white">ABOUT</a></button>
+                        <button type="button" class="btn btn-success btn-lg"><a href="contact us.aspx" style="color:white">CONTACT US</a></button>
+                        <button type="button" class="btn btn-success btn-lg" id="myBtn1">SIGNUP</button>
+                        <button type="button" class="btn btn-success btn-lg" id="myBtn">LOGIN</button>
+                         <button type="button" class="btn btn-success btn-lg" id="myBtn2">ADMIN</button>
+                    </div>
+                    <div class="modal fade" id="myModal" role="dialog">
+                        <div class="modal-dialog">
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header" style="padding: 35px 50px;">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h1><span class="glyphicon glyphicon-lock"></span>Login</h1>
+                                </div>
+
+                                <div class="modal-body" style="padding: 40px 50px;">
+                                
+                                      <asp:Button ID="Button1" runat="server" Text="USER LOGIN" class="btn btn-success btn-block " PostBackUrl="~/signed in.aspx" />
+                                        <asp:Button ID="Button2" runat="server" Text="EDITOR LOGIN" class="btn btn-success btn-block" PostBackUrl="~/Sign in editor.aspx"  />
+                                           
+                                 <%--<button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-home"></span>Login</button>--%>
+                                   
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span>Cancel</button>
+                                    <p>Not a member? <a href="SignUp.aspx">Sign Up</a></p>
+                                    <p>Forgot <a href="#">Password?</a></p>
+                                </div>
+                            </div>
+                            <!-- End modal content -->
+                        </div>
+                    </div>
+                      <div class="modal fade" id="myModal1" role="dialog">
+                        <div class="modal-dialog">
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header" style="padding: 35px 50px;">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h1><span class="glyphicon glyphicon-lock"></span>SIGNUP</h1>
+                                </div>
+
+                                <div class="modal-body" style="padding: 40px 50px;">
+                                
+                                      <asp:Button ID="Button3" runat="server" Text="USER SIGNUP" class="btn btn-success btn-block " PostBackUrl="~/SignUp.aspx" />
+                                        <asp:Button ID="Button4" runat="server" Text="EDITOR SIGNUP" class="btn btn-success btn-block" PostBackUrl="~/editor.aspx"  />
+                                           
+                                 <%--<button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-home"></span>Login</button>--%>
+                                   
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span>Cancel</button>
+                                    <p>Not a member? <a href="SignUp.aspx">Sign Up</a></p>
+                                    <p>Forgot <a href="#">Password?</a></p>
+                                </div>
+                            </div>
+                            <!-- End modal content -->
+                        </div>
+                    </div>
+                      <div class="modal fade" id="myModal2" role="dialog">
+                        <div class="modal-dialog">
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header" style="padding: 35px 50px;">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h1><span class="glyphicon glyphicon-lock"></span>ADMIN</h1>
+                                </div>
+
+                                <div class="modal-body" style="padding: 40px 50px;">
+                                    <asp:Label ID="Label2" runat="server" Text="Admin ID"></asp:Label>
+                                    <asp:TextBox ID="TextBox1" runat="server" TextMode="Password"></asp:TextBox>
+                                      <button type="button" class="btn btn-success btn-lg  btn-block" id="myBtn3">ADMIN LOGIN</button>
+                                
+                                     <%-- <asp:Button ID="Button6" runat="server" Text="USER" class="btn btn-success btn-block " PostBackUrl="~/admin_user.aspx" />
+                                        <asp:Button ID="Button7" runat="server" Text="EDITOR" class="btn btn-success btn-block" PostBackUrl="~/admin_editor.aspx"  />--%>
+                                           
+                                 <%--<button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-home"></span>Login</button>--%>
+                                   
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span>Cancel</button>
+                                    <p>Not a member? <a href="SignUp.aspx">Sign Up</a></p>
+                                    <p>Forgot <a href="#">Password?</a></p>
+                                </div>
+                            </div>
+                            <!-- End modal content -->
+                        </div>
+                    </div>
+                   
+
+                       <div class="modal fade" id="myModal3" role="dialog">
+                        <div class="modal-dialog">
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header" style="padding: 35px 50px;">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h1><span class="glyphicon glyphicon-lock"></span>ADMIN</h1>
+                                </div>
+
+                                <div class="modal-body" style="padding: 40px 50px;">
+                                
+                                      <asp:Button ID="Button8" runat="server" Text="USER" class="btn btn-success btn-block " PostBackUrl="~/admin_user.aspx" />
+                                        <asp:Button ID="Button9" runat="server" Text="EDITOR" class="btn btn-success btn-block" PostBackUrl="~/admin_editor.aspx"  />
+                                           
+                                 <%--<button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-home"></span>Login</button>--%>
+                                   
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span>Cancel</button>
+                                    <p>Not a member? <a href="SignUp.aspx">Sign Up</a></p>
+                                    <p>Forgot <a href="#">Password?</a></p>
+                                </div>
+                            </div>
+                            <!-- End modal content -->
+                        </div>
+                    </div>
+                       
+                </div>
+                <div class="social_plus_search floatright">
+                    <div class="social" style="margin-top: -25px;">
+                        <ul>
+                        </ul>
+                    </div>
+                    <div class="search">
+                                                    &nbsp;
+            <input type="hidden" value="post" name="post_type" />
+                        
+                    </div>
+                </div>
+                <asp:Label ID="Label1" runat="server" Text="Label" Visible="False"></asp:Label>
+                <asp:Button ID="Button5" ButtonType="LinkButton" runat="server" OnClick="Button5_Click" Text="LOG OUT" Visible="False" />
+            </div>
+            <div class="main_menu_area">
+                <ul id="nav">
+                    <li><a href="default.aspx">NEWS</a>
+                <ul>
+                           <li><a href="UP.aspx">Uttar Pradesh</a></li>
+                        <li><a href="MP.aspx">Maharashtra</a></li>
+                      <li><a href="Pnb.aspx">Punjab</a>
+                           
+                            
+                      </ul>
+                    </li>
+
+                    <li><a href="sports.aspx">SPORTS</a>
+                        <ul>
+                            <li><a href="s_cricket.aspx">CRICKET</a></li>
+                            <li><a href="s_football.aspx">FOOTBALL</a></li>
+                            <li><a href="s_hockey">HOCKEY</a></li>
+                            <li><a href="s_tennis.aspx">TENNIS</a></li>
+                            <li><a href="s_others.aspx">OTHER SPORTS</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="sci_tech.aspx">SCI-TECH</a>
+                        <ul>
+                            <li><a href="st_science.aspx">SCIENCE</a></li>
+                            <li><a href="st_technology.aspx">TECHNOLOGY</a></li>
+                            <li><a href="st_health.aspx">HEALTH</a></li>
+                            <li><a href="st_agriculture.aspx">AGRICULTURE</a></li>
+                            <li><a href="st_env.aspx">ENVIRONMENT</a></li>
+                            <li><a href="st_gadgets.aspx">GADGETS</a></li>                              
+                            <li><a href="st_others.aspx">OTHERS</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="books.aspx">BOOKS</a></li>
+                    <li><a href="ls.aspx">LIFE & STYLE</a>
+                        <ul>
+                            <li><a href="ls_fashion.aspx">FASHION</a></li>
+                            <li><a href="ls_fit.aspx">FITNESS</a></li>
+                            <li><a href="ls_food.aspx">FOOD</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="enter.aspx">ENTERTAINMENT</a>
+                        <ul>
+                            <li><a href="e_bollywood.aspx">BOLLYWOOD</a></li>
+                            <li><a href="e_hollywood.aspx">HOLLYWOOD</a></li>
+                            <li><a href="e_mr.aspx">MOVIE REVEIWS</a></li>
+                            <li><a href="e_bp.aspx">BEAUTY PAGEANTS</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="culture.aspx">culture</a></li>
+                    <li><a href="business.aspx">BUSINESS</a>
+                        <ul>
+                            <li><a href="b_indbusiness.aspx">INDIA BUSINESS</a></li>
+                            <li><a href="b_stock.aspx">STOCK MARKET</a></li>
+                            <li><a href="b_international.aspx">INTERNATIONAL BUSINESS</a></li>                            
+                        </ul>
+                    </li>
+                    <li><a href="classified.aspx">classifieds</a></li>
+                    
+                    
+                </ul>
+            </div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+
+  <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <hr />
+            <div class="footer_bottom_area">
+                <div class="footer_menu">
+                    <ul id="f_menu">
+                        <li><a href="#">world news</a></li>
+                        <li><a href="#">sports</a></li>
+                        <li><a href="#">tech</a></li>
+                        <li><a href="#">business</a></li>
+                        <li><a href="#">Movies</a></li>
+                        <li><a href="#">entertainment</a></li>
+                        <li><a href="#">culture</a></li>
+                        <li><a href="#">Books</a></li>
+                        <li><a href="#">classifieds</a></li>
+                        <li><a href="#">blogs</a></li>
+                    </ul>
+                </div>
+                <div class="copyright_text">
+                    <p>
+                        &nbsp;</p>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="assets/js/jquery-min.js"></script>
+        <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="assets/js/jquery.bxslider.js"></script>
+        <script type="text/javascript" src="assets/js/selectnav.min.js"></script>
+        <script type="text/javascript">
+            selectnav('nav', {
+                label: '-Navigation-',
+                nested: true,
+                indent: '-'
+            });
+            selectnav('f_menu', {
+                label: '-Navigation-',
+                nested: true,
+                indent: '-'
+            });
+            $('.bxslider').bxSlider({
+                mode: 'fade',
+                captions: true
+            });
+            $(document).ready(function () {
+                $("#myBtn").click(function () {
+                    $("#myModal").modal();
+                });
+            });
+            $(document).ready(function () {
+                $("#myBtn1").click(function () {
+                    $("#myModal1").modal();
+                });
+            });
+            $(document).ready(function () {
+                $("#myBtn2").click(function () {
+                    $("#myModal2").modal();
+                });
+            });
+            $(document).ready(function () {
+                $("#myBtn3").click(function () {
+                    $("#myModal3").modal();
+                });
+            });
+        </script>
+    </div>
+        </form>
+</body>
+</html>
